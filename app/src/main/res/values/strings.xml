@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="hint">Enter repo owner</string>
+    <string name="search">Search</string>
+    <string name="history">History</string>
+    <string name="repository_name">Repository name</string>
+</resources>
