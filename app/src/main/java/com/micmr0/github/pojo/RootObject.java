@@ -1,4 +1,4 @@
-package com.micmr0.github;
+package com.micmr0.github.pojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;

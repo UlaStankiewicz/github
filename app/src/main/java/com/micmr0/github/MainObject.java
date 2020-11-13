@@ -3,7 +3,11 @@ package com.micmr0.github;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class MainObject implements Parcelable {
+import com.micmr0.github.pojo.Author;
+import com.micmr0.github.pojo.Commit;
+import com.micmr0.github.pojo.Parent;
+
+public class MainObject implements Parcelable{
     private String sha;
     private String node_id;
     private Commit commit;
@@ -11,18 +15,21 @@ public class MainObject implements Parcelable {
     private String html_url;
     private String comments_url;
     private String message;
-    private String author;
-    private String committer;
+    private Author author;
+    private Author committer;
     private Parent[] parents;
 
     protected MainObject(Parcel in) {
         sha = in.readString();
         node_id = in.readString();
+        commit = in.readParcelable(Commit.class.getClassLoader());
         url = in.readString();
         html_url = in.readString();
         comments_url = in.readString();
-        author = in.readString();
-        committer = in.readString();
+        message = in.readString();
+        author = in.readParcelable(Author.class.getClassLoader());
+        committer = in.readParcelable(Author.class.getClassLoader());
+        parents = (Parent[]) in.readArray(Parent[].class.getClassLoader());
     }
 
     public static final Creator<MainObject> CREATOR = new Creator<MainObject>() {
@@ -85,19 +92,19 @@ public class MainObject implements Parcelable {
         this.comments_url = comments_url;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
-    public String getCommitter() {
+    public Author getCommitter() {
         return committer;
     }
 
-    public void setCommitter(String committer) {
+    public void setCommitter(Author committer) {
         this.committer = committer;
     }
 
@@ -118,11 +125,13 @@ public class MainObject implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(sha);
         dest.writeString(node_id);
+        dest.writeParcelable(commit, flags);
         dest.writeString(url);
         dest.writeString(html_url);
         dest.writeString(comments_url);
-        dest.writeString(author);
-        dest.writeString(committer);
+        dest.writeParcelable(author, flags);
+        dest.writeParcelable(committer, flags);
+        dest.writeArray(parents);
     }
 
     public String getMessage() {

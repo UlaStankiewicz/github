@@ -4,4 +4,18 @@
     <string name="search">Search</string>
     <string name="history">History</string>
     <string name="repository_name">Repository name</string>
+    <string name="repo">REPO</string>
+    <string name="history_sp">HISTORY</string>
+    <string name="error">Something went wrong.</string>
+    <string name="message">Message</string>
+    <string name="sha">Sha</string>
+    <string name="author">Author</string>
+    <string name="list_like">List like:</string>
+    <string name="send">Send</string>
+    <string name="suffix_info">List of commits like: Message, Sha, Author\n</string>
+    <string name="repo_url" translatable="false">https://api.github.com/repos/</string>
+    <string name="send_info">Select at least one commit to send</string>
+    <string name="repositories">repositories</string>
+    <string name="app_json">application/json</string>
+    <string name="HISTORY_KEY">HISTORY</string>
 </resources>

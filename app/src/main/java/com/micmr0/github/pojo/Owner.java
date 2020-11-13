@@ -1,4 +1,4 @@
-package com.micmr0.github;
+package com.micmr0.github.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
